@@ -16,6 +16,7 @@ import { ToDoAppService } from './toDoApp.service';
 export class AppComponent implements OnInit {
   title = 'ToDo-App';
   data = {};
+  searchBoxVal: string;
 
   constructor(  
     private toDoAppService: ToDoAppService
@@ -35,8 +36,9 @@ export class AppComponent implements OnInit {
  addToDoItem(toDoList: string):void {
    console.log("inside addToDo")
    this.toDoAppService.addToDoItem(toDoList).subscribe(data => this.addData = data);
-   this.sleepFor(1000);
+   this.sleepFor(2000);
    this.getToDoList();
+   this.searchBoxVal = "";
  }
 
  sleepFor( sleepDuration : int ){
@@ -47,7 +49,7 @@ export class AppComponent implements OnInit {
  updateToDoItem(updateId : string , subject : string):void {
    console.log("update to do list, value of id to update is:"+updateId);
    this.toDoAppService.updateToDoItem(updateId,subject).subscribe(data => this.addData = data);
-   this.sleepFor(1000);
+   this.sleepFor(2000);
    this.getToDoList();
  }
 
@@ -55,7 +57,7 @@ export class AppComponent implements OnInit {
 reOpenToDoItem(updateId : string , subject : string):void {
    console.log("reopen to do list, value of id to update is:"+updateId);
    this.toDoAppService.reOpenToDoItem(updateId,subject).subscribe(data => this.addData = data);
-   this.sleepFor(1000);
+   this.sleepFor(2000);
    this.getToDoList();
  }
 
@@ -63,7 +65,7 @@ reOpenToDoItem(updateId : string , subject : string):void {
 deleteToDoItem(updateId : string , subject : string):void {
    console.log("reopen to do list, value of id to delete is:"+updateId);
    this.toDoAppService.deleteToDoItem(updateId,subject).subscribe(data => this.addData = data);
-   this.sleepFor(1000);
+   this.sleepFor(2000);
    this.getToDoList();
  }
  

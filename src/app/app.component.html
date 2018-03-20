@@ -11,8 +11,8 @@
 <h1>{{title}}</h1> 
 <div>
 <br><br>
-<input #searchBox id="search-box"  placeholder="What needs to be done?" onfocus="this.placeholder = ''"
-onblur="this.placeholder = 'What needs to be done?'"/>
+<input #searchBox id="search-box"  [(ngModel)]='searchBoxVal' placeholder="What needs to be done?" onfocus="this.placeholder = ''" onblur="this.placeholder = 'What needs to be done?'"/>
+
 <button (click)="addToDoItem(searchBox.value)">Add Item</button>
 </div>
 <br><br>
